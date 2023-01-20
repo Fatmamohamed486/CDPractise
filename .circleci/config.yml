@@ -33,7 +33,6 @@ jobs:
       - run:
           name: Run Playbook and Configure server
           command: |
-#ansible-playbook main.yml -i inventory --private-key CICD.pem 
             ansible-playbook -i inventory main.yml
 
 # Invoke jobs via workflows
@@ -44,5 +43,4 @@ workflows:
       - create_infrastructure
       - configure_infrastructure:
           requires:
-          - create_infrastructure
           - create_infrastructure
